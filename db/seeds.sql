@@ -1,3 +1,5 @@
+USE businessManager_db;
+
 INSERT INTO department (id, name)
 VALUES (1, "Accounting"),
        (2, "HR"),
@@ -21,7 +23,7 @@ VALUES
        (8, "Team Lead", 200000, 4),
        (9, "Sr Engineer", 150000, 4),
        (10, "Engineer", 100000, 4),
-       (11, "Jr Engineer", 60000, 4)
+       (11, "Jr Engineer", 60000, 4),
     --    legal
        (12, "Attorney", 500000, 5),
        (13, "Paralegal", 30000, 5);      
@@ -48,14 +50,14 @@ VALUES
        (14, "Isabel", "Betts", 10, 12),
        (15, "Aryan", "Dupont", 10, 12),
        (16, "Saskia", "Melton", 10, 12),
-       (17, "Timothy", "Zalewski", 11, 12,),
+       (17, "Timothy", "Zalewski", 11, 12),
     --    Legal
-       (16, "Nimra", "Woolley", 10, null),
-       (17, "Sulayman", "Reilly", 10, null),
-       (18, "Haleema", "Vargas", 10, null),
-       (20, "Poppy", "Whittle", 10, 16),
-       (21, "Jareth", "Barron", 10, 17),
-       (22, "Dolores", "Pennington", 10, 18);
+       (18, "Nimra", "Woolley", 10, null),
+       (19, "Sulayman", "Reilly", 10, null),
+       (20, "Haleema", "Vargas", 10, null),
+       (21, "Poppy", "Whittle", 10, 16),
+       (22, "Jareth", "Barron", 10, 17),
+       (23, "Dolores", "Pennington", 10, 18);
        
 
 
