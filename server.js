@@ -18,6 +18,9 @@ app.use((req, res) => {
 });
 
 // Shows program initiated
-app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`);
-});
+// Created with future online implentation in mind. 
+// app.listen(PORT, () => {
+//   console.log(`Server running on port http://localhost:${PORT}`);
+// });
+
+

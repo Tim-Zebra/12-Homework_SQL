@@ -5,6 +5,7 @@ const mysql = require('mysql2');
 
 // Filters needing to double define object calling const's as prompts.prompts.mainMenu
 const prompts = require('./prompts.js').prompts;
+
 // Connects db
 const db = mysql.createConnection(
     {
@@ -16,21 +17,29 @@ const db = mysql.createConnection(
     console.log(`Connected to the businessManager_db database.`)
   );
 
-async function traverse() {
-    const traverseDB = true;
-    // while(traverseDB === true) {
-    console.log(prompts);
-    console.log('these the prompts', prompts.mainMenu);
+const traverse = async () => {
+    let traverseDB = true;
     
-    // }
+    while(traverseDB === true) {
+        let mainPrompt = '';
+        mainPrompt = await mainMenu(prompts.mainMenu);
+        
+        // Exit traverse
+        if (mainPrompt === "Quit") {
+            traverseDB = false;
+        }
+    }
+    process.exit();
+}
 
-    // Exit prompt
+// Gets response from main menu
+const mainMenu = async prompts => {
+    let choice = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => choice = response.mainMenu);
 
-
-
-
-
-
+    return choice;
 }
 
 // Inquirer prompts
