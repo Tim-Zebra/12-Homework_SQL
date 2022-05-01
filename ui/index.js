@@ -2,7 +2,7 @@
 // Packages and apps
 const inquirer = require('inquirer-promise');
 const mysql = require('mysql2');
-
+const prompts = require('./prompts.js');
 // Connects db
 const db = mysql.createConnection(
     {
@@ -15,10 +15,24 @@ const db = mysql.createConnection(
   );
 
 async function traverse() {
-console.log('dis linked and traversing!!');
+    const traverseDB = true;
+    // while(traverseDB === true) {
+    console.log('these the prompts', prompts);
+    
+    // }
+
+    // Exit prompt
+
+
+
+
+
+
 }
 
 // Inquirer prompts
+
+
 // db.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function (err, results) {
 //     console.log('\n COUNTS \n');
 //     console.log(results);
