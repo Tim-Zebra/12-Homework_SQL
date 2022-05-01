@@ -1,0 +1,21 @@
+{
+  "name": "12-homework_sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tim-Zebra/12-Homework_SQL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tim-Zebra/12-Homework_SQL/issues"
+  },
+  "homepage": "https://github.com/Tim-Zebra/12-Homework_SQL#readme"
+}
