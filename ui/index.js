@@ -17,45 +17,47 @@ const db = mysql.createConnection(
     console.log(`Connected to the businessManager_db database.`)
   );
 
+// Traverses the database
 const traverse = async () => {
     let traverseDB = true;
 
     while(traverseDB === true) {
+        // Selection variable
+        let prompt = '';
+
         // Main menu
-        let mainPrompt = '';
-        mainPrompt = await mainMenu(prompts.mainMenu);
+        prompt = await mainMenu(prompts.mainMenu);
         
         // View all departments
-        if (mainPrompt === 'View all departments') {
-
+        if (prompt === 'View all departments') {
+            prompt = await viewDept(prompts.deptMenu);
         }
-
         // View all roles
-        if (mainPrompt === 'View all roles') {
-            
+        if (prompt === 'View all roles') {
+            prompt = await viewRoles(prompts.roleMenu);
         }
         // View all employees
-        if (mainPrompt === 'View all Employees') {
-            
+        if (prompt === 'View all Employees') {
+            prompt = await viewEmps(prompts.empMenu);
         }
         // Add a department
-        if (mainPrompt === 'Add a department') {
-            
+        if (prompt === 'Add a department') {
+            prompt = await addDept(prompts.deptAdd);
         }
         // Add a role
-        if (mainPrompt === 'Add a role') {
-            
+        if (prompt === 'Add a role') {
+            prompt = await addRole(prompts.roleAdd);
         }
         // Add an employee
-        if (mainPrompt === 'Add a employee') {
-            
+        if (prompt === 'Add a employee') {
+            prompt = await addEmp(prompts.empAdd);
         }
         // Update an employee
-        if (mainPrompt === 'Update an employee role') {
-            
+        if (prompt === 'Update an employee role') {
+            prompt = await updateEmp(prompts.empUpdate);
         }
         // Exit traverse
-        if (mainPrompt === "Quit") {
+        if (prompt === "Quit") {
             traverseDB = false;
         }
     }
@@ -72,7 +74,7 @@ const mainMenu = async prompts => {
     return choice;
 }
 
-// Views departments
+// View departments
 const viewDept = async prompts => {
     // View departments
 
@@ -81,7 +83,33 @@ const viewDept = async prompts => {
     let choice = '';
     await inquirer
         .prompt(prompts)
-        .then(response => choice = response.mainMenu);
+        .then(response => choice = response.deptMenu);
+
+    return choice;
+}
+// View all roles
+const viewRoles = async prompts => {
+    // View departments
+
+    // Option to add viewDept
+    // Back option (back to main menu)
+    let choice = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => choice = response.roleMenu);
+
+    return choice;
+}
+// View all employees
+const viewEmps = async prompts => {
+    // View departments
+
+    // Option to add viewDept
+    // Back option (back to main menu)
+    let choice = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => choice = response.empMenu);
 
     return choice;
 }
