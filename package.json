@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/Tim-Zebra/12-Homework_SQL/issues"
   },
-  "homepage": "https://github.com/Tim-Zebra/12-Homework_SQL#readme"
+  "homepage": "https://github.com/Tim-Zebra/12-Homework_SQL#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16"
+  }
 }
