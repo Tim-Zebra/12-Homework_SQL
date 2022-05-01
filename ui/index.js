@@ -2,7 +2,9 @@
 // Packages and apps
 const inquirer = require('inquirer-promise');
 const mysql = require('mysql2');
-const prompts = require('./prompts.js');
+
+// Filters needing to double define object calling const's as prompts.prompts.mainMenu
+const prompts = require('./prompts.js').prompts;
 // Connects db
 const db = mysql.createConnection(
     {
@@ -17,7 +19,8 @@ const db = mysql.createConnection(
 async function traverse() {
     const traverseDB = true;
     // while(traverseDB === true) {
-    console.log('these the prompts', prompts);
+    console.log(prompts);
+    console.log('these the prompts', prompts.mainMenu);
     
     // }
 
