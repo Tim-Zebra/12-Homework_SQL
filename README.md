@@ -26,9 +26,10 @@ describe <br>
 
 ## References:
 Random names obtained by: https://www.name-generator.org.uk/quick/
+Inquirer promise obtained from breuleux: https://www.npmjs.com/package/inquirer-promise
 
 ## Development Process:
-
+Installed inquirer-promise
 See commits for more details
 
 ## Author:

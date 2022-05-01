@@ -1,6 +1,6 @@
 
 // Packages and apps
-const inquirer = require('inquirer');
+const inquirer = require('inquirer-promise');
 const mysql = require('mysql2');
 
 // Connects db
@@ -9,15 +9,16 @@ const db = mysql.createConnection(
       host: 'localhost',
       user: 'root',
       password: 'abc123',
-      database: 'books_db'
+      database: 'businessManager_db'
     },
-    console.log(`Connected to the books_db database.`)
+    console.log(`Connected to the businessManager_db database.`)
   );
 
-function traverse() {
+async function traverse() {
 console.log('dis linked and traversing!!');
 }
 
+// Inquirer prompts
 // db.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function (err, results) {
 //     console.log('\n COUNTS \n');
 //     console.log(results);
