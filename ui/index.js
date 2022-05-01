@@ -19,11 +19,41 @@ const db = mysql.createConnection(
 
 const traverse = async () => {
     let traverseDB = true;
-    
+
     while(traverseDB === true) {
+        // Main menu
         let mainPrompt = '';
         mainPrompt = await mainMenu(prompts.mainMenu);
         
+        // View all departments
+        if (mainPrompt === 'View all departments') {
+
+        }
+
+        // View all roles
+        if (mainPrompt === 'View all roles') {
+            
+        }
+        // View all employees
+        if (mainPrompt === 'View all Employees') {
+            
+        }
+        // Add a department
+        if (mainPrompt === 'Add a department') {
+            
+        }
+        // Add a role
+        if (mainPrompt === 'Add a role') {
+            
+        }
+        // Add an employee
+        if (mainPrompt === 'Add a employee') {
+            
+        }
+        // Update an employee
+        if (mainPrompt === 'Update an employee role') {
+            
+        }
         // Exit traverse
         if (mainPrompt === "Quit") {
             traverseDB = false;
@@ -34,6 +64,20 @@ const traverse = async () => {
 
 // Gets response from main menu
 const mainMenu = async prompts => {
+    let choice = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => choice = response.mainMenu);
+
+    return choice;
+}
+
+// Views departments
+const viewDept = async prompts => {
+    // View departments
+
+    // Option to add viewDept
+    // Back option (back to main menu)
     let choice = '';
     await inquirer
         .prompt(prompts)
