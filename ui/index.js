@@ -3,6 +3,7 @@
 const inquirer = require('inquirer-promise');
 const mysql = require('mysql2');
 const cTable = require('console.table');
+require('dotenv').config();
 
 // Filters needing to double define object calling const's as prompts.prompts.mainMenu
 const prompts = require('./prompts.js').prompts;
@@ -10,10 +11,10 @@ const prompts = require('./prompts.js').prompts;
 // Connects db
 const db = mysql.createConnection(
     {
-      host: 'localhost',
-      user: 'root',
-      password: 'abc123',
-      database: 'businessManager_db'
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME
     },
     console.log(`Connected to the businessManager_db database.`)
   );
