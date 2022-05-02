@@ -40,7 +40,7 @@ const traverse = async () => {
             prompt = await viewRoles(prompts.roleMenu);
         }
         // View all employees
-        if (prompt === 'View all Employees') {
+        if (prompt === 'View all employees') {
             prompt = await viewEmps(prompts.empMenu);
         }
         // Add a department
@@ -64,6 +64,7 @@ const traverse = async () => {
             traverseDB = false;
         }
     }
+    console.log('\n------------------Good Bye!------------------')
     process.exit();
 }
 
@@ -91,9 +92,11 @@ const viewDept = async prompts => {
     });
 
     // Displays departments as table
-    console.log('\n\n');
+    console.log('\n\x1b[36m%s\x1b[0m', '-------------------------------------------');
+    console.log('\x1b[36m%s\x1b[0m', '            Viewing Departments');
+    console.log('\x1b[36m%s\x1b[0m', '-------------------------------------------\n');
     console.table(query);
-    console.log('\n\n');
+    console.log('\n');
 
     // Option to add dept
     // Back option (back to main menu)
@@ -119,9 +122,11 @@ const viewRoles = async prompts => {
     });
 
     // Displays roles as table
-    console.log('\n\n');
+    console.log('\n\x1b[36m%s\x1b[0m', '-------------------------------------------');
+    console.log('\x1b[36m%s\x1b[0m', '             Viewing Roles');
+    console.log('\x1b[36m%s\x1b[0m', '-------------------------------------------\n');
     console.table(query);
-    console.log('\n\n');
+    console.log('\n');
     
     // Option to add role
     // Back option (back to main menu)
@@ -146,9 +151,11 @@ const viewEmps = async prompts => {
     });
 
     // Displays employees as a table
-    console.log('\n\n');
+    console.log('\n\x1b[36m%s\x1b[0m', '------------------------------------------------');
+    console.log('\x1b[36m%s\x1b[0m', '               Viewing Employees');
+    console.log('\x1b[36m%s\x1b[0m', '------------------------------------------------\n');
     console.table(query);
-    console.log('\n\n');
+    console.log('\n');
     
     // Option to add employee
     // Back option (back to main menu)
