@@ -17,6 +17,8 @@ const db = mysql.createConnection(
     console.log(`Connected to the businessManager_db database.`)
   );
 
+const promiseDb = db.promise();
+
 // Traverses the database
 const traverse = async () => {
     let traverseDB = true;
@@ -77,7 +79,14 @@ const mainMenu = async prompts => {
 // View departments
 const viewDept = async prompts => {
     // View departments
-
+    await promiseDb.query('SELECT * FROM businessmanager_db.department;')
+    .then(results => {
+        console.table(`\n ${results} \n`);
+    })
+    .catch(err => {
+        throw err;
+    });
+    
     // Option to add viewDept
     // Back option (back to main menu)
     let choice = '';
@@ -87,10 +96,13 @@ const viewDept = async prompts => {
 
     return choice;
 }
+
 // View all roles
 const viewRoles = async prompts => {
-    // View departments
-
+    // View roles
+    await promiseDb.query('SELECT * FROM businessmanager_db.role;', (err, results) => {
+        console.table(`\n ${results} \n`);
+    });
     // Option to add viewDept
     // Back option (back to main menu)
     let choice = '';
@@ -102,8 +114,10 @@ const viewRoles = async prompts => {
 }
 // View all employees
 const viewEmps = async prompts => {
-    // View departments
-
+    // View employees
+    await promiseDb.query('SELECT * FROM businessmanager_db.employee;', (err, results) => {
+        console.table(`\n ${results} \n`);
+    });
     // Option to add viewDept
     // Back option (back to main menu)
     let choice = '';
@@ -114,7 +128,6 @@ const viewEmps = async prompts => {
     return choice;
 }
 
-// Inquirer prompts
 
 
 // db.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function (err, results) {

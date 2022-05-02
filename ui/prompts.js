@@ -20,7 +20,7 @@ const prompts = {
     roleMenu: [
         {
             type: 'list',
-            message: 'What would you like to do? ',
+            message: 'What would you like to do?',
             name: 'roleMenu',
             choices: ['Add a role', 'Go back to main menu']   
         },
@@ -28,9 +28,9 @@ const prompts = {
     empMenu: [
         {
             type: 'list',
-            message: 'What would you like to do? ',
+            message: 'What would you like to do?',
             name: 'empMenu',
-            choices: ['Add an employee', 'Go back to main menu']
+            choices: ['Add an employee', 'Update an employee role', 'Go back to main menu']
         },
     ],
 }
