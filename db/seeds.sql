@@ -52,12 +52,12 @@ VALUES
        (16, "Saskia", "Melton", 10, 12),
        (17, "Timothy", "Zalewski", 11, 12),
     --    Legal
-       (18, "Nimra", "Woolley", 10, null),
-       (19, "Sulayman", "Reilly", 10, null),
-       (20, "Haleema", "Vargas", 10, null),
-       (21, "Poppy", "Whittle", 10, 16),
-       (22, "Jareth", "Barron", 10, 17),
-       (23, "Dolores", "Pennington", 10, 18);
+       (18, "Nimra", "Woolley", 12, null),
+       (19, "Sulayman", "Reilly", 12, null),
+       (20, "Haleema", "Vargas", 12, null),
+       (21, "Poppy", "Whittle", 13, 18),
+       (22, "Jareth", "Barron", 13, 19),
+       (23, "Dolores", "Pennington", 13, 20);
        
 
 
