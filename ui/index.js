@@ -84,7 +84,7 @@ const viewDept = async prompts => {
     // Gets query
     let query;
 
-    await promiseDb.query('SELECT * FROM businessmanager_db.department')
+    await promiseDb.query('SELECT * FROM businessmanager_db.department;')
     .then(results => {
         query = results[0];
     })
