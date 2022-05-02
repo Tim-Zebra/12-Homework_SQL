@@ -114,7 +114,7 @@ const viewRoles = async prompts => {
     // Gets query
     let query;
 
-    await promiseDb.query('SELECT * FROM businessmanager_db.role;')
+    await promiseDb.query('SELECT role.id, role.title, role.salary, department.name FROM role JOIN department ON role.department_id = department.id;')
     .then(results => {
         query = results[0];
     })
