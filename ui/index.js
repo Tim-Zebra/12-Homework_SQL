@@ -2,6 +2,7 @@
 // Packages and apps
 const inquirer = require('inquirer-promise');
 const mysql = require('mysql2');
+const cTable = require('console.table');
 
 // Filters needing to double define object calling const's as prompts.prompts.mainMenu
 const prompts = require('./prompts.js').prompts;
@@ -78,16 +79,23 @@ const mainMenu = async prompts => {
 
 // View departments
 const viewDept = async prompts => {
-    // View departments
-    await promiseDb.query('SELECT * FROM businessmanager_db.department;')
+    // Gets query
+    let query;
+
+    await promiseDb.query('SELECT * FROM businessmanager_db.department')
     .then(results => {
-        console.table(`\n ${results} \n`);
+        query = results[0];
     })
     .catch(err => {
         throw err;
     });
-    
-    // Option to add viewDept
+
+    // Displays departments as table
+    console.log('\n\n');
+    console.table(query);
+    console.log('\n\n');
+
+    // Option to add dept
     // Back option (back to main menu)
     let choice = '';
     await inquirer
@@ -99,11 +107,23 @@ const viewDept = async prompts => {
 
 // View all roles
 const viewRoles = async prompts => {
-    // View roles
-    await promiseDb.query('SELECT * FROM businessmanager_db.role;', (err, results) => {
-        console.table(`\n ${results} \n`);
+    // Gets query
+    let query;
+
+    await promiseDb.query('SELECT * FROM businessmanager_db.role;')
+    .then(results => {
+        query = results[0];
+    })
+    .catch(err => {
+        throw err;
     });
-    // Option to add viewDept
+
+    // Displays roles as table
+    console.log('\n\n');
+    console.table(query);
+    console.log('\n\n');
+    
+    // Option to add role
     // Back option (back to main menu)
     let choice = '';
     await inquirer
@@ -114,11 +134,23 @@ const viewRoles = async prompts => {
 }
 // View all employees
 const viewEmps = async prompts => {
-    // View employees
-    await promiseDb.query('SELECT * FROM businessmanager_db.employee;', (err, results) => {
-        console.table(`\n ${results} \n`);
+    // Gets query
+    let query;
+
+    await promiseDb.query('SELECT * FROM businessmanager_db.employee;')
+    .then(results => {
+        query = results[0];
+    })
+    .catch(err => {
+        throw err;
     });
-    // Option to add viewDept
+
+    // Displays employees as a table
+    console.log('\n\n');
+    console.table(query);
+    console.log('\n\n');
+    
+    // Option to add employee
     // Back option (back to main menu)
     let choice = '';
     await inquirer
