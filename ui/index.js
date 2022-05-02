@@ -143,7 +143,7 @@ const viewEmps = async prompts => {
     // Gets query
     let query;
 
-    await promiseDb.query('SELECT * FROM businessmanager_db.employee;')
+    await promiseDb.query('SELECT e.id, e.first_name, e.last_name, role.title, department.name AS department, role.salary, m.first_name AS manager FROM employee e INNER JOIN role ON e.role_id = role.id  INNER JOIN department ON role.department_id = department.id LEFT JOIN employee m ON m.id = e.manager_id;')
     .then(results => {
         query = results[0];
     })
@@ -152,9 +152,9 @@ const viewEmps = async prompts => {
     });
 
     // Displays employees as a table
-    console.log('\n\x1b[36m%s\x1b[0m', '------------------------------------------------');
-    console.log('\x1b[36m%s\x1b[0m', '               Viewing Employees');
-    console.log('\x1b[36m%s\x1b[0m', '------------------------------------------------\n');
+    console.log('\n\x1b[36m%s\x1b[0m', '---------------------------------------------------------------------------');
+    console.log('\x1b[36m%s\x1b[0m', '                              Viewing Employees');
+    console.log('\x1b[36m%s\x1b[0m', '---------------------------------------------------------------------------\n');
     console.table(query);
     console.log('\n');
     
