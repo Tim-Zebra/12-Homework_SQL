@@ -14,3 +14,5 @@ FROM employee e
 INNER JOIN role ON e.role_id = role.id 
 INNER JOIN department ON role.department_id = department.id
 LEFT JOIN employee m ON m.id = e.manager_id;
+
+-- Add department: id, name

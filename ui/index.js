@@ -46,19 +46,19 @@ const traverse = async () => {
         }
         // Add a department
         if (prompt === 'Add a department') {
-            prompt = await addDept(prompts.deptAdd);
+            prompt = await addDept(prompts.addDept);
         }
         // Add a role
         if (prompt === 'Add a role') {
-            prompt = await addRole(prompts.roleAdd);
+            prompt = await addRole(prompts.addRole);
         }
         // Add an employee
         if (prompt === 'Add a employee') {
-            prompt = await addEmp(prompts.empAdd);
+            prompt = await addEmp(prompts.addEmp);
         }
         // Update an employee
         if (prompt === 'Update an employee role') {
-            prompt = await updateEmp(prompts.empUpdate);
+            prompt = await updateEmp(prompts.updateEmp);
         }
         // Exit traverse
         if (prompt === "Quit") {
@@ -168,18 +168,24 @@ const viewEmps = async prompts => {
     return choice;
 }
 
+// Add deparment
+// View departments
+const addDept = async prompts => {
+    // Option to add dept
+    // Back option (back to main menu)
 
+    let id = '';
+    let name = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => {
+            id = response.id;
+            name = response.name;
+        });
 
-// db.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function (err, results) {
-//     console.log('\n COUNTS \n');
-//     console.log(results);
-//     console.log('\n COUNTS \n');
-//   });
-  
-//   db.query('SELECT SUM(quantity) AS total_in_section, MAX(quantity) AS max_quantity, MIN(quantity) AS min_quantity, AVG(quantity) AS avg_quantity FROM favorite_books GROUP BY section', function (err, results) {
-//     console.log('\n SELECT SUM \n');
-//     console.log(results);
-//     console.log('\n SELECT SUM \n');
-//   });
+    // Sends client back to their view departments
+    console.log('Department successfull added!');
+    
+}
 
 module.exports = traverse;
