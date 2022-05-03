@@ -261,7 +261,29 @@ const addEmp = async prompts => {
 }        
 // Update employee
 const updateEmp = async prompts => {
-    
+     // Get the list of employees from the db, returns as an array of objects
+    let query;
+
+    await promiseDb.query("SELECT CONCAT(first_name,' ',last_name) AS full_name FROM employee;")
+    .then(results => {
+        query = results[0];
+        console.log(query);
+    })
+    .catch(err => {
+        throw err;
+    });
+
+    // Extracts employee's into an array
+    let nameArray = [];
+
+    for (let k = 0; k < query.length; k++) {
+        let value = query[k].full_name;
+        nameArray.push(value);
+    }
+
+    console.log(nameArray);
+    // Sets employees as choices
+    // prompts[0].choices = ;
     
     // Obtains department info
     let id = '';

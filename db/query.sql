@@ -26,3 +26,7 @@ VALUES (?,?,?,?);
 -- Add employee: id, first_name, last_name, role_id, manager_id
 INSERT INTO employee
 VALUES (?,?,?,?,?);
+
+-- Get employee names as a full name from db
+SELECT CONCAT(first_name,' ',last_name) AS full_name
+FROM employee;
