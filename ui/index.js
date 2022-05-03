@@ -283,24 +283,27 @@ const updateEmp = async prompts => {
     // Sets employees as choices
     prompts[0].choices = nameArray;
     
-    // Obtains department info
-    let id = '';
-    let first_name = '';
-    let last_name = '';
-    let role_id = '';
-    let manager_id = '';
+    // Choose who you are going to replace
+    let who = '';
     await inquirer
         .prompt(prompts)
         .then(response => {
             id = response.id;
-            first_name = response.first_name;
-            last_name = response.last_name;
-            role_id = response.role_id;
-            manager_id = response.manager_id;
+
+            console.log(reponse);
         });
 
+    // Choose what you are going to replace
+    let what = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => {
+            id = response.id;
+
+            console.log(reponse);
+        });
     // Adds deptartment info to db
-    const sql = `INSERT INTO employee VALUES (?,?,?,?,?);`
+    const sql = `SELECT REPLACE('employe.${who}) INTO employee VALUES (?,?,?,?,?);`
     const data = [id,first_name,last_name,role_id,manager_id];
     await promiseDb.query(sql, data)
         .then(results => {
