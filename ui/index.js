@@ -311,7 +311,6 @@ const updateEmp = async prompts => {
     // Find the coresponding employee object
     let currentEmployee;
     for (let k = 0; k < query.length; k++) {
-        console.log('quyery[k]', query[k]);
         if (query[k].full_name === who) {
             currentEmployee = query[k];
         }
@@ -337,4 +336,5 @@ const updateEmp = async prompts => {
             console.log(`ERROR: Please try again using the correct values.\n\n(Example: A number should be entered as an integer)\n\nReturning to main menu...\n`);
         });
 }  
+
 module.exports = traverse;
