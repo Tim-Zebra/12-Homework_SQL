@@ -171,9 +171,7 @@ const viewEmps = async prompts => {
 // Add deparment
 // View departments
 const addDept = async prompts => {
-    // Option to add dept
-    // Back option (back to main menu)
-
+    // Obtains department info
     let id = '';
     let name = '';
     await inquirer
@@ -183,8 +181,20 @@ const addDept = async prompts => {
             name = response.name;
         });
 
+    // Adds deptartment info to db
+    const sql = `INSERT INTO department VALUES (?,?);`
+    const data = [id,name];
+    await promiseDb.query(sql, data)
+        .then(results => {
+            query = results[0];
+        })
+        .catch(err => {
+            console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
+            throw err;
+        });
+
     // Sends client back to their view departments
-    console.log('Department successfull added!');
+    console.log('\n\x1b[32m', 'Department successfull added!', '\x1b[37m\n');
     
 }
 
