@@ -101,6 +101,12 @@ const prompts = {
             name: 'updateEmp',
             choices: ['Add an employee', 'Update an employee role', 'Go back to main menu']
         },
+        {
+            type: 'list',
+            message: 'Which would you like to update?',
+            name: 'updateOptions',
+            choices: ['Update first name', 'Update last name', 'Update role', 'Update department', 'Cancel']
+        },
     ],
 }
 
