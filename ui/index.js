@@ -25,6 +25,12 @@ const promiseDb = db.promise();
 const traverse = async () => {
     let traverseDB = true;
 
+    // Welcome
+    console.log('\n\n\n\n\n\n\n\n\n\n\n\n\x1b[33m\n');
+    console.log('---------------------------------------------------------------------------------------------------------------------------\n');
+    console.log('                                           Welcome to Business Database Manager!                                           \n');
+    console.log('---------------------------------------------------------------------------------------------------------------------------\n');
+    console.log('\x1b[37m\n')
     while(traverseDB === true) {
         // Selection variable
         let prompt = '';
