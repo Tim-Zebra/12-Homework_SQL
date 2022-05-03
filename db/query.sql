@@ -30,3 +30,13 @@ VALUES (?,?,?,?,?);
 -- Get employee names as a full name from db
 SELECT CONCAT(first_name,' ',last_name) AS full_name
 FROM employee;
+
+-- Update employee info if value is a string
+UPDATE employee 
+SET ${what} = '${value}' 
+WHERE id = ${currentEmployee.id};
+
+-- Update employee info if value is not a string
+UPDATE employee 
+SET ${what} = ${value} 
+WHERE id = ${currentEmployee.id};

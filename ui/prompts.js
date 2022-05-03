@@ -101,16 +101,12 @@ const prompts = {
             name: 'updateEmp',
             choices: []
         },
-    ],
-    updateOption: [
         {
             type: 'list',
             message: 'Which would you like to update?',
             name: 'updateOptions',
             choices: ['first_name', 'last_name', 'role', 'manager_id', 'Cancel']
         },
-    ],
-    updateValue: [
         {
             type: 'input',
             message: 'Please enter the updated value?',
