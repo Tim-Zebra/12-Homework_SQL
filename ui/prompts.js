@@ -47,10 +47,24 @@ const prompts = {
     ],
     addRole: [
         {
-            type: 'list',
-            message: 'What would you like to do?',
-            name: 'addRole',
-            choices: ['Add an employee', 'Update an employee role', 'Go back to main menu']
+            type: 'input',
+            message: 'Enter the new role ID: ',
+            name: 'id',
+        },
+        {
+            type: 'input',
+            message: 'Enter the new role title: ',
+            name: 'title',
+        },
+        {
+            type: 'input',
+            message: 'Enter the new role salary: ',
+            name: 'salary',
+        },
+        {
+            type: 'input',
+            message: 'Enter the id of the associated department: ',
+            name: 'deptId',
         },
     ],
     addEmp: [

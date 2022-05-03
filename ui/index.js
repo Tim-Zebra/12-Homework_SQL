@@ -169,7 +169,6 @@ const viewEmps = async prompts => {
 }
 
 // Add deparment
-// View departments
 const addDept = async prompts => {
     // Obtains department info
     let id = '';
@@ -187,15 +186,44 @@ const addDept = async prompts => {
     await promiseDb.query(sql, data)
         .then(results => {
             query = results[0];
+            console.log('\n\x1b[32m', 'Department successfull added!', '\x1b[37m\n');
         })
         .catch(err => {
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
-            throw err;
+            console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
+        });
+}
+
+// Add role
+const addRole = async prompts => {
+    // Obtains department info
+    let id = '';
+    let title = '';
+    let salary = '';
+    let deptId = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => {
+            id = response.id;
+            title = response.title;
+            salary = response.salary;
+            deptId = response.deptId;
         });
 
-    // Sends client back to their view departments
-    console.log('\n\x1b[32m', 'Department successfull added!', '\x1b[37m\n');
-    
+    // Adds deptartment info to db
+    const sql = `INSERT INTO role VALUES (?,?,?,?);`
+    const data = [id,title,salary,deptId];
+    await promiseDb.query(sql, data)
+        .then(results => {
+            query = results[0];
+
+            // Sends client back to their view departments
+            console.log('\n\x1b[32m', 'Role successfull added!', '\x1b[37m\n');
+        })
+        .catch(err => {
+            console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
+            console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
+        });
 }
 
 module.exports = traverse;
