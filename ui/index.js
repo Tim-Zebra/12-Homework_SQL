@@ -17,7 +17,7 @@ const db = mysql.createConnection(
       database: process.env.DB_NAME
     },
     console.log(`Connected to the businessManager_db database.`)
-  );
+);
 
 const promiseDb = db.promise();
 
