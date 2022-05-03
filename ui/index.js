@@ -185,10 +185,11 @@ const addDept = async prompts => {
     const data = [id,name];
     await promiseDb.query(sql, data)
         .then(results => {
-            query = results[0];
+            // logs success
             console.log('\n\x1b[32m', 'Department successfull added!', '\x1b[37m\n');
         })
         .catch(err => {
+            // logs error
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
@@ -215,12 +216,11 @@ const addRole = async prompts => {
     const data = [id,title,salary,deptId];
     await promiseDb.query(sql, data)
         .then(results => {
-            query = results[0];
-
-            // Sends client back to their view departments
+            // logs success
             console.log('\n\x1b[32m', 'Role successfull added!', '\x1b[37m\n');
         })
         .catch(err => {
+            // logs error            
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
@@ -249,12 +249,11 @@ const addEmp = async prompts => {
     const data = [id,first_name,last_name,role_id,manager_id];
     await promiseDb.query(sql, data)
         .then(results => {
-            query = results[0];
-
-            // Sends client back to their view departments
+            // logs success
             console.log('\n\x1b[32m', 'Employee successfull added!', '\x1b[37m\n');
         })
         .catch(err => {
+            // logs error
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
@@ -264,7 +263,7 @@ const updateEmp = async prompts => {
      // Get the list of employees from the db, returns as an array of objects
     let query;
 
-    await promiseDb.query("SELECT CONCAT(first_name,' ',last_name) AS full_name FROM employee;")
+    await promiseDb.query("SELECT id, CONCAT(first_name,' ',last_name) AS full_name FROM employee;")
     .then(results => {
         query = results[0];
         console.log(query);
@@ -283,8 +282,6 @@ const updateEmp = async prompts => {
 
     // Sets employees as choices
     prompts[0].choices = nameArray;
-
-    console.log(prompts[0].choices);
     
     // Obtains department info
     let id = '';
@@ -307,12 +304,11 @@ const updateEmp = async prompts => {
     const data = [id,first_name,last_name,role_id,manager_id];
     await promiseDb.query(sql, data)
         .then(results => {
-            query = results[0];
-
-            // Sends client back to their view departments
-            console.log('\n\x1b[32m', 'Employee successfull added!', '\x1b[37m\n');
+            // logs success
+            console.log('\n\x1b[32m', 'Employee updated Successfully!', '\x1b[37m\n');
         })
         .catch(err => {
+            // logs error
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
