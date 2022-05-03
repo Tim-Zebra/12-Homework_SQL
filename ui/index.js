@@ -53,7 +53,7 @@ const traverse = async () => {
             prompt = await addRole(prompts.addRole);
         }
         // Add an employee
-        if (prompt === 'Add a employee') {
+        if (prompt === 'Add an employee') {
             prompt = await addEmp(prompts.addEmp);
         }
         // Update an employee
@@ -225,5 +225,39 @@ const addRole = async prompts => {
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
 }
+
+// Add employee
+const addEmp = async prompts => {
+    // Obtains department info
+    let id = '';
+    let first_name = '';
+    let last_name = '';
+    let role_id = '';
+    let manager_id = '';
+    await inquirer
+        .prompt(prompts)
+        .then(response => {
+            id = response.id;
+            first_name = response.first_name;
+            last_name = response.last_name;
+            role_id = response.role_id;
+            manager_id = response.manager_id;
+        });
+
+    // Adds deptartment info to db
+    const sql = `INSERT INTO employee VALUES (?,?,?,?,?);`
+    const data = [id,first_name,last_name,role_id,manager_id];
+    await promiseDb.query(sql, data)
+        .then(results => {
+            query = results[0];
+
+            // Sends client back to their view departments
+            console.log('\n\x1b[32m', 'Employee successfull added!', '\x1b[37m\n');
+        })
+        .catch(err => {
+            console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
+            console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
+        });
+}        
 
 module.exports = traverse;

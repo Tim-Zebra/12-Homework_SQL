@@ -6,7 +6,7 @@ const prompts = {
             type: 'list',
             message: 'What would you like to do?',
             name: 'mainMenu',
-            choices: ['View all departments','View all roles','View all employees','Add a department','Add a role','Add a employee','Update an employee role', 'Quit']
+            choices: ['View all departments','View all roles','View all employees','Add a department','Add a role','Add an employee','Update an employee role', 'Quit']
         },
     ],
     deptMenu: [
@@ -69,10 +69,29 @@ const prompts = {
     ],
     addEmp: [
         {
-            type: 'list',
-            message: 'What would you like to do?',
-            name: 'addEmp',
-            choices: ['Add an employee', 'Update an employee role', 'Go back to main menu']
+            type: 'input',
+            message: 'Enter the new employee ID: ',
+            name: 'id',
+        },
+        {
+            type: 'input',
+            message: 'Enter the employee\'s first name: ',
+            name: 'first_name',
+        },
+        {
+            type: 'input',
+            message: 'Enter the employee\'s last name: ',
+            name: 'last_name',
+        },
+        {
+            type: 'input',
+            message: 'Enter the id of the associated role: ',
+            name: 'role_id',
+        },
+        {
+            type: 'input',
+            message: 'Enter the id of the associated manager: ',
+            name: 'manager_id',
         },
     ],
     updateEmp: [

@@ -18,3 +18,11 @@ LEFT JOIN employee m ON m.id = e.manager_id;
 -- Add department: id, name
 INSERT INTO department
 VALUES (?,?);
+
+-- Add role: id, title, salary, debtId
+INSERT INTO role
+VALUES (?,?,?,?);
+
+-- Add employee: id, first_name, last_name, role_id, manager_id
+INSERT INTO employee
+VALUES (?,?,?,?,?);
