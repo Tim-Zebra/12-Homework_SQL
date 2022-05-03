@@ -18,9 +18,15 @@ A text based database traversing interface used to manage a SQL database for you
 * When updating or adding info during input prompts, be sure to enter the corresponding value. eg. a string for a name, and a number for an id. <br />
 
 ## Application Demos:
-![Banner](./demos/) <br />
-![Banner](./demos/) <br />
-<a href="">Video Demo</a>
+![Banner](./demos/addDepartment.png) 
+![Banner](./demos/schemaSQL.png) <br />
+![Banner](./demos/seedsSQL.png) <br />
+![Banner](./demos/querySQL.png) <br />
+![Banner](./demos/duplicateEntry.png)
+![Banner](./demos/successEntry.png) <br /><br />
+![Banner](./demos/demo_MenuTraversing.gif) <br /><br />
+
+<a href="https://drive.google.com/file/d/1ER0fxBZR-AWbTQCpgRpzzpF0j6t6MruO/view">Video Demo</a>
 
 ## Link to Deployed Page:
 N/A

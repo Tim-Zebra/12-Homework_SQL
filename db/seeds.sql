@@ -58,7 +58,3 @@ VALUES
        (21, "Poppy", "Whittle", 13, 18),
        (22, "Jareth", "Barron", 13, 19),
        (23, "Dolores", "Pennington", 13, 20);
-       
-
-
-       

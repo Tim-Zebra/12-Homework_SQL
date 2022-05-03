@@ -193,7 +193,7 @@ const addDept = async prompts => {
     await promiseDb.query(sql, data)
         .then(results => {
             // logs success
-            console.log('\n\x1b[32m', 'Department successfull added!', '\x1b[37m\n');
+            console.log('\n\x1b[32m', 'Department successfully added!', '\x1b[37m\n');
         })
         .catch(err => {
             // logs error
@@ -257,7 +257,7 @@ const addEmp = async prompts => {
     await promiseDb.query(sql, data)
         .then(results => {
             // logs success
-            console.log('\n\x1b[32m', 'Employee successfull added!', '\x1b[37m\n');
+            console.log('\n\x1b[32m', 'Employee successfully added!', '\x1b[37m\n');
         })
         .catch(err => {
             // logs error
@@ -334,7 +334,7 @@ const updateEmp = async prompts => {
     await promiseDb.query(sql)
         .then(results => {
             // logs success
-            console.log('\n\x1b[32m', 'Employee updated Successfully!', '\x1b[37m\n');
+            console.log('\n\x1b[32m', 'Employee updated successfully!', '\x1b[37m\n');
         })
         .catch(err => {
             // logs error

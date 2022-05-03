@@ -108,7 +108,7 @@ const prompts = {
         },
         {
             type: 'input',
-            message: 'Please enter the updated value?',
+            message: 'Please enter the updated value:',
             name: 'updateValue'
         },
     ],
