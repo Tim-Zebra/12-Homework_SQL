@@ -281,9 +281,10 @@ const updateEmp = async prompts => {
         nameArray.push(value);
     }
 
-    console.log(nameArray);
     // Sets employees as choices
-    // prompts[0].choices = ;
+    prompts[0].choices = nameArray;
+
+    console.log(prompts[0].choices);
     
     // Obtains department info
     let id = '';
