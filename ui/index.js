@@ -138,6 +138,7 @@ const viewRoles = async prompts => {
 
     return choice;
 }
+
 // View all employees
 const viewEmps = async prompts => {
     // Gets query
@@ -257,7 +258,8 @@ const addEmp = async prompts => {
             console.log('\n\x1b[31m', '------------------------------------------------!!Duplicate Entry!!------------------------------------------------', '\x1b[37m\n')
             console.log(`ERROR: The id: #${id} is already in use.\n\nReturning to main menu...\n`);
         });
-}        
+}       
+
 // Update employee
 const updateEmp = async prompts => {
      // Get the list of employees from the db, returns as an array of objects
@@ -266,13 +268,12 @@ const updateEmp = async prompts => {
     await promiseDb.query("SELECT id, first_name, last_name, role_id, manager_id, CONCAT(first_name,' ',last_name) AS full_name FROM employee;")
     .then(results => {
         query = results[0];
-        console.log(query);
     })
     .catch(err => {
         throw err;
     });
 
-    // Extracts employee's into an array
+    // Extracts employees into an array
     let nameArray = [];
 
     for (let k = 0; k < query.length; k++) {
@@ -283,47 +284,40 @@ const updateEmp = async prompts => {
     // Sets employees as choices
     prompts[0].choices = nameArray;
     
-    // Choose who you are going to replace
+    // Choose who you are going to update
     let who = '';
     await inquirer
         .prompt(prompts[0])
         .then(response => {
             who = response.updateEmp;
-            console.log(who);
         });
 
-    // Choose what you are going to replace and get the previous value
+    // Choose what you are going to update
     let what = '';
     await inquirer
         .prompt(prompts[1])
         .then(response => {
             what = response.updateOptions;
-            console.log(what);
         });
-    // Choose value you are going to replace
+
+    // Create the new value
     let value = '';
     await inquirer
         .prompt(prompts[2])
         .then(response => {
             value = response.updateValue;
-            console.log(value);
         });
 
-    // Find the coresponding employee values\
+    // Find the coresponding employee object
     let currentEmployee;
     for (let k = 0; k < query.length; k++) {
         console.log('quyery[k]', query[k]);
-        console.log('who', who);
         if (query[k].full_name === who) {
             currentEmployee = query[k];
         }
     }
-    console.log('\n who: ', who, '\nwhat: ', what,'\nvalue: ',value);
-    console.log(currentEmployee);
-    console.log(typeof what);
 
-    // Adds deptartment info to db
-    // Decides which sql syntax to use based on integer value or string value
+    // Decides which sql syntax to use based on string value
     let sql;
     if (typeof what === 'string') {
         sql = `UPDATE employee SET ${what} = '${value}' WHERE id = ${currentEmployee.id};`
@@ -331,7 +325,7 @@ const updateEmp = async prompts => {
         sql = `UPDATE employee SET ${what} = ${value} WHERE id = ${currentEmployee.id};`
     }
 
-    console.log(sql);
+    // Updates the db
     await promiseDb.query(sql)
         .then(results => {
             // logs success

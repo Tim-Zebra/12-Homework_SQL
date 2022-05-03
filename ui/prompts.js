@@ -1,5 +1,4 @@
 // List of prompts accessible
-
 const prompts = {
     mainMenu: [
         {
@@ -114,6 +113,5 @@ const prompts = {
         },
     ],
 }
-
 
 exports.prompts = prompts;
